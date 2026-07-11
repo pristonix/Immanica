@@ -1,0 +1,7 @@
+services:
+  immanica-website:
+    build: .
+    container_name: immanica-hr-solutions
+    ports:
+      - "8080:80"
+    restart: unless-stopped
