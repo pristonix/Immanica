@@ -15,3 +15,5 @@ Open http://localhost:8080
 ## Run without Docker
 
 Open `index.html` directly, or serve the folder through any static web server.
+
+Startup branding fix: the header now uses compact logo artwork without the embedded slogan, and “Empowering People. Elevating Business.” is rendered once as a dedicated header tagline to prevent duplicate startup display.
