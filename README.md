@@ -1,19 +1,36 @@
-# Immanica HR Solutions Website
+# Immanica HR Solutions — Render Static Site
 
-Responsive static corporate website with a working auto-play carousel, current EEC 2026 content, Labour Code-aware service descriptions, transparent logo, mobile navigation and Docker support.
+This package is configured as a **Render Static Site**. It does not need Docker, Nginx, Node, Python, or a start command.
 
-The duplicate full-screen startup logo/splash has been removed so the site opens directly into the branded header and hero.
+## Recommended deployment using `render.yaml`
 
-## Run with Docker
+1. Upload/push the contents of this folder to your GitHub repository.
+2. In Render, choose **New > Blueprint**.
+3. Connect the GitHub repository containing this `render.yaml` file.
+4. Render will create `immanica-hr-static` with runtime `static` and publish `./site`.
+5. After the new static URL works, move your custom domains from the old Web Service to this Static Site.
 
-```bash
-docker compose up -d --build
-```
+## Manual Render Static Site settings
 
-Open http://localhost:8080
+If you prefer **New > Static Site** instead of Blueprint:
 
-## Run without Docker
+- Branch: `main`
+- Root Directory: leave blank
+- Build Command: `echo "Immanica static site - no build required"`
+- Publish Directory: `site`
+- Start Command: **none** (Static Sites do not use one)
 
-Open `index.html` directly, or serve the folder through any static web server.
+## Custom domains
 
-Startup branding fix: the header now uses compact logo artwork without the embedded slogan, and “Empowering People. Elevating Business.” is rendered once as a dedicated header tagline to prevent duplicate startup display.
+After the static site is live, add:
+
+- `immanicahrsolutions.com`
+- `www.immanicahrsolutions.com`
+
+If Render says a domain is already in use, remove that domain from the old Web Service first, then add it to the new Static Site.
+
+DNS can remain pointed at Render. For the apex/root domain, Render may instruct you to use `216.24.57.1`; for `www`, use the CNAME target Render shows for the **new static site**.
+
+## Important
+
+Do not deploy this package as a Render Web Service. Deploy it as a **Static Site** (or Blueprint with `runtime: static`). Static Sites are served by Render's CDN and do not use the free Web Service sleep/wake cycle.
