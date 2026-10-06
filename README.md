@@ -1,6 +1,8 @@
 # Immanica HR Solutions Website
 
-Responsive static corporate website with a working auto-play carousel, dedicated EEC section, expanded services, transparent logo, mobile navigation and Docker support.
+Responsive static corporate website with a working auto-play carousel, current EEC 2026 content, Labour Code-aware service descriptions, transparent logo, mobile navigation and Docker support.
+
+The duplicate full-screen startup logo/splash has been removed so the site opens directly into the branded header and hero.
 
 ## Run with Docker
 

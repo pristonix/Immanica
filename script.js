@@ -1,6 +1,5 @@
 (() => {
   'use strict';
-  const splash = document.getElementById('splash');
   const menu = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#main-nav');
   const carousel = document.querySelector('.carousel');
@@ -13,19 +12,6 @@
   let timer = null;
   let touchStartX = 0;
   let animating = false;
-
-  let splashHidden = false;
-  const hideSplash = () => {
-    if (splashHidden) return;
-    splashHidden = true;
-    if (splash) splash.classList.add('hide');
-    document.body.classList.remove('is-loading');
-    window.setTimeout(() => splash && splash.remove(), 850);
-  };
-  const revealSite = () => window.setTimeout(hideSplash, 950);
-  if (document.readyState === 'complete') revealSite();
-  else window.addEventListener('load', revealSite, { once: true });
-  window.setTimeout(hideSplash, 2600);
 
   if (menu && nav) {
     menu.addEventListener('click', () => {
